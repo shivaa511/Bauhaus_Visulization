@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Visual Dillebration</title>
+
+<body background="img1.jpg">
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://bl.ocks.org/syntagmatic/raw/3341641/render-queue.js"></script>
+
+<link rel="stylesheet" href="style.css"></link>
+<!--Select your Attribute:
+<!--<select id="mySelect">
+  <option value="Artikelnr">Artikelnr</option>
+  <option value="Gesamtnr">Gesamtnr</option>
+  <option value="coder">coder</option>
+  <option value="medium">medium</option>
+</select>
+<button onclick="buttonscript()">Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avg:<input type="text" name="" id="total" readonly/>-->
+    <input type="button" id="calc" value="Send"/><br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" name="rangeInput" min="0" step="0.01" max="7.3" style="width:4%" onchange="updateTextInput1(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput2(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput3(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput4(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput5(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput6(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput7(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput8(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput9(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput10(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput11(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput12(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput13(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="value" id="1a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="text" class="value"  id="2a" style="width:4%" name="" value="6.5">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="text" class="value"  id="3a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="4a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="5a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="6a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="7a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="8a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="9a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="10a" style="width:4%" name="" value="" >
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="11a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="12a" style="width:4%" name="" value="" >
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" class="value"  id="13a" style="width:4%" name="" value="" > 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--
+<input type="text" class="value"  id="14a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="15a" style="width:2%" name="" value="" >
+&nbsp;
+    &nbsp;
+<input type="text" class="value"  id="16a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="17a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="18a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="19a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="20a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="21a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="22a" style="width:2%" name="" value="" >
+
+<input type="text" class="value"  id="23a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="24a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="25a" style="width:2%" name="" value="" >
+&nbsp;
+<input type="text" class="value"  id="26a" style="width:2%" name="" value="" > -->
+</form>
+<script src="myjs.js"></script>
+</html>

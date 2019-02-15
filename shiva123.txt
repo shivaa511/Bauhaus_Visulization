@@ -1,0 +1,120 @@
+import Assignment.Rectangle2D;
+import inf.v3d.view.Viewer;
+
+public class Panel  {
+    static int pix = 40;
+    static int color =
+	public static Rectangle2D [][] rectangle = new Rectangle2D [pix][pix];
+	static boolean pixel [][]			= new boolean [pix][pix];
+	static boolean nxt [][]		    = new boolean[pix][pix];
+	static Viewer view 		 			= new Viewer();
+  
+	
+	public void create(){	
+		
+		for (int i=0; i < pix; i++) {
+		for (int j=0; j<pix; j++) {
+
+			rectangle[i][j] = new Rectangle2D(i, j, 1,1);
+			rectangle[i][j].draw("white", view);
+			pixel [i][j] = false;		
+		}
+	}
+		view.setVisible(true); 
+		}
+	public static void Pat1 () {
+		rectangle[19][19].draw("green", view); 
+		pixel [19][19] = true;
+		rectangle[20][20].draw("green", view);
+		pixel [20][20] = true;
+		rectangle[19][20].draw("green", view);
+		pixel [19][20] = true;
+		rectangle[20][19].draw("green", view);
+		pixel [20][19] = true;
+			view.setVisible(true);
+}
+	public static void Pat2 () {
+		rectangle[28][28].draw("black", view);
+		pixel [28][28] = true;
+		rectangle[28][30].draw("black", view);
+		pixel [28][30] = true;
+		rectangle[29][31].draw("black", view);
+		pixel [29][31] = true;
+		rectangle[30][31].draw("black", view);
+		pixel [30][31] = true;
+		rectangle[31][31].draw("black", view);
+		pixel [31][31] = true;
+		rectangle[32][31].draw("black", view);
+		pixel [32][31] = true;
+		rectangle[32][30].draw("black", view);
+		pixel [32][30] = true;
+		rectangle[32][29].draw("black", view);
+		pixel [32][29] = true;
+		rectangle[31][28].draw("black", view);
+		pixel [31][28] = true;
+		view.setVisible(true);
+	}
+	public static void Pat3() {
+		rectangle[6][7].draw("blue", view);
+		pixel [6][7] = true;
+		rectangle[7][7].draw("blue", view);
+		pixel [7][7] = true;
+		rectangle[7][8].draw("blue", view);
+		pixel [7][8] = true;
+		rectangle[6][8].draw("blue", view);
+		pixel [6][8] = true;
+		rectangle[7][13].draw("blue", view);
+		pixel [7][13] = true;
+		rectangle[7][12].draw("blue", view);
+		pixel [7][12] = true;
+		rectangle[8][12].draw("blue", view);
+		pixel [8][12] = true;
+		rectangle[9][12].draw("blue", view);
+		pixel [9][12] = true;
+		rectangle[8][14].draw("blue", view);
+		pixel [8][14] = true;
+		
+		
+		view.setVisible(true);
+	}
+
+	public static void Algorithm (int cnt) {
+
+		for (int t=1; t<=cnt; t++) {
+			for (int x=0; x<pix; x++) {
+				for (int y=0; y<pix; y++) {
+						int neibr = 0;
+						try {
+					//checking neibr
+					if ((pixel[x-1][y-1] == true) || (pixel[x-1][y+1] == true) || (pixel[x+1][y-1] == true) || (pixel[x+1][y+1] == true) || (pixel[x+1][y]  == true) || (pixel[x  ][y-1] == true) || (pixel[x  ][y+1] == true) ||  (pixel[x-1][y]   == true)) {neibr++;}
+					
+									
+					//Rules
+					 if ((pixel[x][y] == true) && (neibr <  2)) nxt[x][y] = false;
+					 else if ((pixel[x][y] == true) && (neibr==2 || neibr ==3 )) nxt[x][y]=true;
+					 else if ((pixel[x][y] == true) && (neibr >  3)) nxt[x][y] = false;
+					 else if ((pixel[x][y] == false) && (neibr == 3)) nxt[x][y] = true;
+					    else nxt[x][y] = pixel[x][y];
+						} 
+						catch (Exception e) {}
+				} 
+			}
+				//drawing nxt generation
+			
+			for (int x=0;x<pix; x++) {
+				for (int y=0; y<pix;y++) {
+					rectangle[x][y] = new Rectangle2D(x, y, 1,1);
+					if (nxt[x][y] ==true) {
+						rectangle[x][y].draw("red", view);
+						pixel[x][y] = true;
+					}
+					else {	
+					rectangle[x][y].draw("white", view);
+					pixel[x][y]=false;
+					}
+				}
+			}
+			view.setVisible(true);
+		}
+	}
+}

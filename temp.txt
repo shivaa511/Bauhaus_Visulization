@@ -1,0 +1,27 @@
+var Tempausg_beityp;
+var Tempantw_beityp;   
+var Tempausg_emp;
+var Tempantw_emp;
+var Tempausg_degr;
+var Tempantw_degr;
+var Tempausg_hoefl;
+var Tempantw_hoefl;
+var Tempausg_ehrl;
+var Tempantw_ehrl; 
+var Tempausg_posemo;
+var Tempantw_posemo; 
+var Tempausg_negemo;
+var Tempantw_negemo;  
+var Tempausg_humor;
+var Tempantw_humor;
+var Tempausg_frage;
+var Tempantw_frage;
+var Tempausg_korr;
+var Tempantw_korr;
+var Tempausg_zus;
+var Tempantw_zus;    
+var Tempausg_meta;
+var Tempantw_meta;
+var Tempausg_mod;
+var Tempantw_mod;
+    
