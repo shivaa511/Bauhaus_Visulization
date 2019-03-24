@@ -50,307 +50,10 @@ var types = {
     defaultScale: d3.scaleTime().range([innerHeight, 0])
   }
 };
-var dimensions;
+
 var selected_dimensions; // adding in new var showing selected dims
 //alert(dimensions);
- function buttonscript() {
-   attribute = document.getElementById("mySelect").value;
 
-   // see whether inside the current selection
-   var found = false;
-   var found_index = -1;
-   for(var i = 0; i < selected_dimensions.length; i++) {
-     if(selected_dimensions[i].key == attribute) {
-      found = true;
-      found_index = i;
-      break;
-     }
-   }
-
-   // if found remove, if not add
-   if(found) {
-     selected_dimensions.splice(found_index, 1);
-   } else {
-     selected_dimensions.push(dimensions[attribute]);
-   }
-   console.log(selected_dimensions);
-}  
-
-dimensions = { "Artikelnr": {
-    key: "Artikelnr",
-    description: "Artikelnr",
-    type: types["Number"],
-    axis: d3.axisLeft()
-      .tickFormat(function(d,i) {
-        return d;
-      })
-  },
-
-  "Gesamtnr": 
-  {
-    key: "Gesamtnr",
-    description: "Gesamtnr",
-    type: types["Number"]
-  },
-  "coder": 
-  {
-    key: "coder",
-    description: "coder",
-    type: types["Number"]
-  },
-  "medium": 
-  {
-    key: "medium",
-    type: types["Number"],
-    description: "medium",
-    
-  },
- /*
-  {
-    key: "typ_diskber",
-    description: "typ_diskber",
-    type: types["Number"]
-  },
-  
-	 {
-    key: "f_anzbeit",
-    description: "f_anzbeit",
-    type: types["Number"]
-  },
-
-  
-	{
-    key: "f_accalter",
-    description: "f_accalter",
-    type: types["Number"]
-  },
-  {
-    key: "f_posBewRed",
-    description: "f_posBewRed",
-    type: types["Number"]
-  },
-  
-{
-    key: "posbew",
-    description: "posbew",
-    type: types["Number"]
-  },	
-	
-{
-    key: "f_negbew",
-    description: "f_negbew",
-    type: types["Number"]
-  },	
-	
-		
-{
-    key: "klarname",
-    description: "klarname",
-    type: types["Number"]
-  },	
-{
-    key: "journalist",
-    description: "journalist",
-    type: types["Number"]
-  },	
-{
-    key: "f_kommtyp",
-    description: "f_kommtyp",
-    type: types["Number"]
-  },		
-	
-{
-    key: "ausg_nr",
-    description: "ausg_nr",
-    type: types["Number"]
-  },	
-	
-
-
-{
-    key: "ausg_umf",
-    description: "ausg_umf",
-    type: types["Number"]
-  },		
-{
-    key: "ausg_posReakNut",
-    description: "ausg_posReakNut",
-    type: types["Number"]
-  },
-{
-    key: "ausg_posReakRed",
-    description: "ausg_posReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_negReakNut",
-    description: "ausg_negReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_beityp",
-    description: "ausg_beityp",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_begrtyp",
-    description: "ausg_begrtyp",
-    type: types["Number"]
-  },			
-{
-    key: "ausg_adr",
-    description: "ausg_adr",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_emp",
-    description: "ausg_emp",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_degr",
-    description: "ausg_degr",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_hoefl",
-    description: "ausg_hoefl",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_ehrl",
-    description: "ausg_ehrl",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_posemo",
-    description: "ausg_posemo",
-    type: types["Number"]
-  },	
-	
-{
-    key: "ausg_negemo",
-    description: "ausg_negemo",
-    type: types["Number"]
-  },		
-{
-    key: "ausg_zielnegemo",
-    description: "ausg_zielnegemo",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_humor",
-    description: "ausg_humor",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_frage",
-    description: "ausg_frage",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_zus",
-    description: "ausg_zus",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_meta",
-    description: "ausg_meta",
-    type: types["Number"]
-  },	
-	
-	
-{
-    key: "ausg_mod",
-    description: "ausg_mod",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_spr1",
-    description: "ausg_spr1",
-    type: types["Number"]
-  },	
-		
-	
-{
-    key: "ausg_spr2",
-    description: "ausg_spr2",
-    type: types["Number"]
-  },	
-	
-	
-{
-    key: "ausg_leg1",
-    description: "ausg_leg1",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_leg2",
-    description: "ausg_leg2",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_obgrpos",
-    description: "ausg_obgrpos",
-    type: types["Number"]
-  },	
-	
-	
-	
-{
-    key: "ausg_fluechtl",
-    description: "ausg_fluechtl",
-    type: types["Number"]
-  },	
-{
-    key: "beznr_komm",
-    description: "beznr_komm",
-    type: types["Number"]
-  },	
-{
-    key: "antw_nr",
-    description: "antw_nr",
-    type: types["Number"]
-  },	
-{
-    key: "antw_sicht",
-    description: "antw_sicht",
-    type: types["Number"]
-  },		
-		
-	
-	
-{
-    key: "antw_datzeit",
-    description: "antw_datzeit",
-    type: types["Number"]
-  },	
-{
-    key: "antw_umf",
-    description: "antw_umf",
-    type: types["Number"]
-  },	
-{
-    key: "antw_posReakNut",
-    description: "antw_posReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "antw_posReakRed",
-    description: "antw_posReakRed",
-    type: types["Number"]
-  },		
-{
-    key: "antw_negReakNut",
-    description: "antw_negReakNut",
-    type: types["Number"]
-  },	
-  {
-    key: "acc_nam",
-    description: "acc_name",
-    type: types["String"]
-  },*/
-};
 
 
 
@@ -363,48 +66,102 @@ selected_dimensions = [
     type: types["String"],
     axis: d3.axisLeft()
       .tickFormat(function(d,i) {
-          if ( d == 222)
-              return d + "Temporay Text";
+          if ( d == 20)
+              return "answers without statement / reason " + d;
+		  if ( d == 21)
+              return "unfounded answer " + d;
+		  if ( d == 22)
+              return "reasoned answer " + d;
+		  if ( d == 201)
+              return "approval " + d;
+		  if ( d == 202)
+              return "rejection " + d;
+		  if ( d == 211)
+              return "Unfounded claim " + d;
+		  if ( d == 212)
+              return "Unfounded contradiction " + d;
+		  if ( d == 213)
+              return "Unfounded defense " + d;
+		  if ( d == 214)
+              return "Unfounded approval " + d;
+		  if ( d == 221)
+              return "Reasoned statement / opinion " + d;
+		  if ( d == 222)
+              return "Reasoned contradiction " + d;
+		  if ( d == 223)
+              return "Reasoned defense " + d;
+		  if ( d == 224)
+              return "Well-founded approval " + d;
+		  
           return d;
       })
   },
 
  {
-    key: "emp",
+    
+     key: "emp",
     description: "emp",
-    type: types["Number"]
+    type: types["String"],
+	axis: d3.axisLeft()
+      .tickFormat(function(d,i) {
+	if ( d == 0)
+              return "other positions " + d;
+	if ( d == 1)
+              return "panelists " + d;
+	if ( d == 2)
+              return "third person " + d;
+	 return d;
+      })
+
   },
 
  {
     key: "degr",
     description: "degr",
-    type: types["Number"]
+    type: types["String"]/*,
+	axis: d3.axisLeft()
+      .tickFormat(function(d,i) {
+	if ( d == 0)
+              return "No degrading " + d;
+	if ( d == 1)
+              return "Despicable use of comments " + d;
+	if ( d == 2)
+              return "Despicable treatment of statements " + d;
+    if ( d == 3)
+              return "Dismissive handling of utterances " + d;
+    if ( d == 4)
+              return "Despicable treatment of statements by several groups " + d;
+	if ( d == 9)
+              return "Despicable treatment of statements made by other persons " + d;
+	 return d;
+      })
+*/
   },
 
  {
     key: "hoefl",
     description: "hoefl",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
 {
     key: "ehrl",
     description: "ehrl",
-    type: types["Number"]
+    type: types["String"]
   },
 
 {
     key: "posemo",
     description: "posemo",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
 {
     key: "negemo",
     description: "negemo",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
@@ -413,7 +170,7 @@ selected_dimensions = [
 {
     key: "humor",
     description: "humor",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
@@ -422,14 +179,14 @@ selected_dimensions = [
 {
     key: "frage",
     description: "frage",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
 {
     key: "korr",
     description: "korr",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
@@ -437,282 +194,22 @@ selected_dimensions = [
 {
     key: "zus",
     description: "zus",
-    type: types["Number"]
+    type: types["String"]
   },
 
 
 {
     key: "meta",
     description: "meta",
-    type: types["Number"]
+    type: types["String"]
   },
 
 {
     key: "mod",
     description: "mod",
-    type: types["Number"]
-  },
-
-
-
-
-  /*{
-    key: "coder",
-    description: "coder",
-    type: types["Number"]
-  },
-    
-  {
-    key: "medium",
-    type: types["Number"],
-    description: "medium",
-    
-  },
- 
-  {
-    key: "typ_diskber",
-    description: "typ_diskber",
-    type: types["Number"]
-  },
-  
-	 {
-    key: "f_anzbeit",
-    description: "f_anzbeit",
-    type: types["Number"]
-  },
-
-  
-	{
-    key: "f_accalter",
-    description: "f_accalter",
-    type: types["Number"]
-  },
-  {
-    key: "f_posBewRed",
-    description: "f_posBewRed",
-    type: types["Number"]
-  },
-  
-{
-    key: "posbew",
-    description: "posbew",
-    type: types["Number"]
-  },	
-	
-{
-    key: "f_negbew",
-    description: "f_negbew",
-    type: types["Number"]
-  },	
-	
-		
-{
-    key: "klarname",
-    description: "klarname",
-    type: types["Number"]
-  },	
-{
-    key: "journalist",
-    description: "journalist",
-    type: types["Number"]
-  },	
-{
-    key: "f_kommtyp",
-    description: "f_kommtyp",
-    type: types["Number"]
-  },		
-	
-{
-    key: "ausg_nr",
-    description: "ausg_nr",
-    type: types["Number"]
-  },	
-	
-
-
-{
-    key: "ausg_umf",
-    description: "ausg_umf",
-    type: types["Number"]
-  },		
-{
-    key: "ausg_posReakNut",
-    description: "ausg_posReakNut",
-    type: types["Number"]
-  },
-{
-    key: "ausg_posReakRed",
-    description: "ausg_posReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_negReakNut",
-    description: "ausg_negReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_beityp",
-    description: "ausg_beityp",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_begrtyp",
-    description: "ausg_begrtyp",
-    type: types["Number"]
-  },			
-{
-    key: "ausg_adr",
-    description: "ausg_adr",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_emp",
-    description: "ausg_emp",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_degr",
-    description: "ausg_degr",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_hoefl",
-    description: "ausg_hoefl",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_ehrl",
-    description: "ausg_ehrl",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_posemo",
-    description: "ausg_posemo",
-    type: types["Number"]
-  },	
-	
-{
-    key: "ausg_negemo",
-    description: "ausg_negemo",
-    type: types["Number"]
-  },		
-{
-    key: "ausg_zielnegemo",
-    description: "ausg_zielnegemo",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_humor",
-    description: "ausg_humor",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_frage",
-    description: "ausg_frage",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_zus",
-    description: "ausg_zus",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_meta",
-    description: "ausg_meta",
-    type: types["Number"]
-  },	
-	
-	
-{
-    key: "ausg_mod",
-    description: "ausg_mod",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_spr1",
-    description: "ausg_spr1",
-    type: types["Number"]
-  },	
-		
-	
-{
-    key: "ausg_spr2",
-    description: "ausg_spr2",
-    type: types["Number"]
-  },	
-	
-	
-{
-    key: "ausg_leg1",
-    description: "ausg_leg1",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_leg2",
-    description: "ausg_leg2",
-    type: types["Number"]
-  },	
-{
-    key: "ausg_obgrpos",
-    description: "ausg_obgrpos",
-    type: types["Number"]
-  },	
-	
-	
-	
-{
-    key: "ausg_fluechtl",
-    description: "ausg_fluechtl",
-    type: types["Number"]
-  },	
-{
-    key: "beznr_komm",
-    description: "beznr_komm",
-    type: types["Number"]
-  },	
-{
-    key: "antw_nr",
-    description: "antw_nr",
-    type: types["Number"]
-  },	
-{
-    key: "antw_sicht",
-    description: "antw_sicht",
-    type: types["Number"]
-  },		
-		
-	
-	
-{
-    key: "antw_datzeit",
-    description: "antw_datzeit",
-    type: types["Number"]
-  },	
-{
-    key: "antw_umf",
-    description: "antw_umf",
-    type: types["Number"]
-  },	
-{
-    key: "antw_posReakNut",
-    description: "antw_posReakNut",
-    type: types["Number"]
-  },	
-{
-    key: "antw_posReakRed",
-    description: "antw_posReakRed",
-    type: types["Number"]
-  },		
-{
-    key: "antw_negReakNut",
-    description: "antw_negReakNut",
-    type: types["Number"]
-  },	
-  {
-    key: "acc_nam",
-    description: "acc_name",
     type: types["String"]
-  },*/
+  },
+
 ];
 document.getElementById('1a').value = CommonWeight;
 function updateTextInput1(val) {
@@ -769,23 +266,9 @@ document.getElementById('13a').value = CommonWeight;
 function updateTextInput13(val) {
           document.getElementById('13a').value=val; 
         }
-/*document.getElementById('14a').value = CommonWeight; 
-document.getElementById('15a').value = CommonWeight; 
-document.getElementById('16a').value = CommonWeight; 
-document.getElementById('17a').value = CommonWeight; 
-document.getElementById('18a').value = CommonWeight; 
-document.getElementById('19a').value = CommonWeight; 
-document.getElementById('20a').value = CommonWeight; 
-document.getElementById('21a').value = CommonWeight; 
-document.getElementById('22a').value = CommonWeight; 
-document.getElementById('23a').value = CommonWeight; 
-document.getElementById('24a').value = CommonWeight; 
-document.getElementById('25a').value = CommonWeight; 
-document.getElementById('26a').value = CommonWeight;
-document.getElementById('27a').value = CommonWeight;*/
 
 
-console.log(dimensions);
+
 var xscale = d3.scalePoint()
     .domain(d3.range(selected_dimensions.length))
     .range([0, width]);
@@ -817,7 +300,7 @@ ctx.globalAlpha = 0.15;
 ctx.lineWidth = 1.5;
 ctx.scale(devicePixelRatio, devicePixelRatio);
 
-var output = d3.select("body").append("pre");
+//var output = d3.select("body").append("pre");
 
 var axes = svg.selectAll(".axis")
     .data(selected_dimensions)
@@ -825,7 +308,7 @@ var axes = svg.selectAll(".axis")
     .attr("class", function(d) { return "axis " + d.key.replace(/ /g, "_"); })
     .attr("transform", function(d,i) { return "translate(" + xscale(i) + ")"; });
 
-d3.csv("Comments124.csv", function(error, data) {
+d3.csv("Comments_Final.csv", function(error, data) {
   
   if (error) throw error;
 
@@ -842,60 +325,7 @@ d3.csv("Comments124.csv", function(error, data) {
     }
   });
  
-  /*var ausg_beitypAvg = d3.mean(data, function(d) { return d.antw_beityp; });
-    document.getElementById('1a').value = ausg_beitypAvg.toFixed(2);
-  var antw_beitypAvg = d3.mean(data, function(d) { return d.antw_beityp; });
-    document.getElementById('2a').value = antw_beitypAvg.toFixed(2);
-  var ausg_empAvg = d3.mean(data, function(d) { return d.ausg_emp; });
-    document.getElementById('3a').value = ausg_empAvg.toFixed(2);
-  var antw_empAvg = d3.mean(data, function(d) { return d.antw_emp; });
-    document.getElementById('4a').value = antw_empAvg.toFixed(2);
-  var ausg_degrAvg = d3.mean(data, function(d) { return d.ausg_degr; });
-    document.getElementById('5a').value = ausg_degrAvg.toFixed(2);
-  var antw_degrAvg = d3.mean(data, function(d) { return d.antw_degr; });
-    document.getElementById('6a').value = antw_degrAvg.toFixed(2);
-  var ausg_hoeflAvg = d3.mean(data, function(d) { return d.ausg_hoefl; });
-    document.getElementById('7a').value = ausg_hoeflAvg.toFixed(2);
-  var antw_hoeflAvg = d3.mean(data, function(d) { return d.antw_hoefl; });
-    document.getElementById('8a').value = antw_hoeflAvg.toFixed(2);
-  var ausg_ehrlAvg = d3.mean(data, function(d) { return d.ausg_ehrl; });
-    document.getElementById('9a').value = ausg_ehrlAvg.toFixed(2);
-  var antw_ehrlAvg = d3.mean(data, function(d) { return d.antw_ehrl; });
-    document.getElementById('10a').value = antw_ehrlAvg.toFixed(2);
-  var ausg_posemoAvg = d3.mean(data, function(d) { return d.ausg_posemo; });
-    document.getElementById('11a').value = ausg_posemoAvg.toFixed(2);
-  var antw_posemoAvg = d3.mean(data, function(d) { return d.antw_posemo; });
-    document.getElementById('12a').value = antw_posemoAvg.toFixed(2); 
-  var ausg_negemoAvg = d3.mean(data, function(d) { return d.ausg_negemo; });
-    document.getElementById('13a').value = ausg_negemoAvg.toFixed(2);
-  var antw_negemoAvg = d3.mean(data, function(d) { return d.antw_negemo; });
-    document.getElementById('14a').value = antw_negemoAvg.toFixed(2);
-  var ausg_humorAvg = d3.mean(data, function(d) { return d.ausg_humor; });
-    document.getElementById('15a').value = ausg_humorAvg.toFixed(2);
-  var antw_humorAvg = d3.mean(data, function(d) { return d.antw_humor; });
-    document.getElementById('16a').value = antw_humorAvg.toFixed(2);
-  var ausg_frageAvg = d3.mean(data, function(d) { return d.ausg_frage; });
-    document.getElementById('17a').value = ausg_frageAvg.toFixed(2);
-  var antw_frageAvg = d3.mean(data, function(d) { return d.antw_frage; });
-    document.getElementById('18a').value = antw_frageAvg.toFixed(2); 
-  var ausg_korrAvg = d3.mean(data, function(d) { return d.ausg_korr; });
-    document.getElementById('19a').value = ausg_korrAvg.toFixed(2);
-  var antw_korrAvg = d3.mean(data, function(d) { return d.antw_korr; });
-    document.getElementById('20a').value = antw_korrAvg.toFixed(2);
-  var ausg_zusAvg = d3.mean(data, function(d) { return d.antw_zus; });
-    document.getElementById('21a').value = antw_zusAvg;
-  var antw_zusAvg = d3.mean(data, function(d) { return d.antw_zus; });
-    document.getElementById('22a').value = antw_zusAvg.toFixed(2);
-  var ausg_metaAvg = d3.mean(data, function(d) { return d.ausg_meta; });
-    document.getElementById('23a').value = ausg_metaAvg.toFixed(2);
-  var antw_metaAvg = d3.mean(data, function(d) { return d.antw_meta; });
-    document.getElementById('24a').value = antw_metaAvg.toFixed(2);
-  var ausg_modAvg = d3.mean(data, function(d) { return d.ausg_mod; });
-    document.getElementById('25a').value = ausg_modAvg.toFixed(2); 
-  var antw_modAvg = d3.mean(data, function(d) { return d.antw_mod; });
-    document.getElementById('26a').value = antw_modAvg.toFixed(2);*/
   
-
   // type/dimension default setting happens here
   selected_dimensions.forEach(function(dim) {
     if (!("domain" in dim)) {
@@ -944,12 +374,13 @@ d3.csv("Comments124.csv", function(error, data) {
 
   d3.selectAll(".axis.beityp .tick text")
     .style("fill", color);
+	
     
-  output.text(d3.tsvFormat(data.slice(0,24)));
-  output.on({
-      "mouseover": function(d) { axes.highlight([d]) },
-      "mouseout": axes.unhighlight
-    });
+  //output.text(d3.tsvFormat(data.slice(0,24)));
+  //output.on({
+  //    "mouseover": function(d) { axes.highlight([d]) },
+  //    "mouseout": axes.unhighlight
+  //  });
 
   function project(d) {
     return selected_dimensions.map(function(p,i) {
@@ -1063,108 +494,80 @@ d3.csv("Comments124.csv", function(error, data) {
     output.text(d3.tsvFormat(selected.slice(0,24)));
   }
 });
-/*function total()
-{
-var a1 = document.getElementById("1a");
-var a2 = document.getElementById("2a");
-var a3 = document.getElementById("3a");
-var a3 = document.getElementById("1a");
-var a4 = document.getElementById("4a");
-var a5 = document.getElementById("5a");
-var a6 = document.getElementById("6a");
-var a7 = document.getElementById("7a");
-var a8 = document.getElementById("8a");
-var a9 = document.getElementById("9a");
-var a10 = document.getElementById("10a");
-var a11 = document.getElementById("11a");
-var a12 = document.getElementById("12a");
-var a13 = document.getElementById("13a");
-var a14 = document.getElementById("14a");
-var a15 = document.getElementById("15a");
-var a16 = document.getElementById("16a");
-var a17 = document.getElementById("17a");
-var a18 = document.getElementById("18a");
-var a19 = document.getElementById("19a");
-var a20 = document.getElementById("20a");
-var a21 = document.getElementById("21a");
-var a22 = document.getElementById("22a");
-var a23 = document.getElementById("23a");
-var a24 = document.getElementById("24a");
-var a25 = document.getElementById("25a");
-var a26 = document.getElementById("26a");
-
-if((a1.value=="") || (a2.value=="") || (a3.value=="") || (a4.value=="") || (a5.value=="") || (a6.value=="") || (a7.value=="") || (a8.value=="") || (a9.value=="") || (a10.value=="") || (a11.value=="") || (a12.value=="") || (a13.value=="") || (a14.value=="") || (a15.value=="") || (a16.value=="") || (a17.value=="") || (a18.value=="") || (a19.value=="") || (a20.value=="") || (a21.value=="") || (a22.value=="") || (a23.value=="") || (a24.value=="") || (a25.value=="") || (a26.value==""))
-    
-{
-    a1.value = 0;
-    a2.value = 0;
-    a3.value = 0;
-    a4.value = 0;
-    a5.value = 0;
-    a6.value = 0;
-    a7.value = 0;
-    a8.value = 0;
-    a9.value = 0;
-    a10.value = 0;
-    a11.value = 0;
-    a12.value = 0;
-    a13.value = 0;
-    a14.value = 0;
-    a15.value = 0;
-    a16.value = 0;
-    a17.value = 0;
-    a18.value = 0;
-    a19.value = 0;
-    a20.value = 0;
-    a21.value = 0;
-    a22.value = 0;
-    a23.value = 0;
-    a24.value = 0;
-    a25.value = 0;
-    a26.value = 0;
-    
-}
-
-var total1 = (a1.value + a2.value + a3.value + a4.value + a5.value + a6.value + a7.value + a8.value + a9.value + a10.value + a11.value + a12.value + a13.value + a14.value + a15.value + a16.value + a17.value + a18.value + a19.value + a20.value + a21.value + a22.value + a23.value + a24.value + a25.value + a26.value);
-
-var total2 = (total1/26);
-document.getElementById("total").value=total2.toFixed(2);
-}*/
 
 
 
 
 var beitypVal;
-var btn = document.getElementById("calc");
-btn.addEventListener("click", function() {
- d3.csv("Comments124.csv", function(data) {
+var totalWeights;
+
+function doit_onkeypress(event){
+if (event.keyCode == 13 || event.which == 13){
+var tweight1a = parseFloat(document.getElementById("1a").value);
+var tweight2a = parseFloat(document.getElementById("2a").value);
+var tweight3a = parseFloat(document.getElementById("3a").value);
+var tweight4a = parseFloat(document.getElementById("4a").value);
+var tweight5a = parseFloat(document.getElementById("5a").value);
+var tweight6a = parseFloat(document.getElementById("6a").value);
+var tweight7a = parseFloat(document.getElementById("7a").value);
+var tweight8a = parseFloat(document.getElementById("8a").value);
+var tweight9a = parseFloat(document.getElementById("9a").value);
+var tweight10a = parseFloat(document.getElementById("10a").value);
+var tweight11a = parseFloat(document.getElementById("11a").value);
+var tweight12a = parseFloat(document.getElementById("12a").value);
+var tweight13a = parseFloat(document.getElementById("13a").value);
+totalWeights = tweight1a + tweight2a + tweight3a + tweight4a + tweight5a + tweight6a + tweight7a + tweight8a + tweight9a + tweight10a + tweight11a + tweight12a + tweight13a;
+
+var tempMiss = parseFloat(totalWeights).toFixed(2);
+    var ced = 100;
+    var tempmissingweight = ced - tempMiss;
+    var missingweight = tempmissingweight.toFixed(2)
+
+var x = document.getElementsByClassName('value');
+//Intilizing the Counter for Check changed calues
+function xyz(){
+    d3.csv("Comments_Final.csv", function(data) {
   data.forEach(function(d) {
-      d.beityp = +d.beityp
-      if (d.beityp == 20 || d.beityp == 21 || d.beityp == 211)
+      
+      d.f_kommtyp = +d.f_kommtyp;
+      d.antw_beityp = +d.antw_beityp;
+      d.ausg_beityp = +d.ausg_beityp;
+
+      if(d.f_kommtyp == 1)
+          {
+              beityp = d. antw_beityp;
+          }
+      else 
+          {
+              beityp = d.ausg_beityp;
+          }
+
+      
+      if (beityp == 20 || beityp == 21 || beityp == 211)
           {
               beitypVal = 0.0;
               Temp_beityp =  beitypVal * document.getElementById("1a").value ;
-              console.log(Temp_beityp);
+              //console.log(Temp_beityp);
           }
-      else if (d.beityp == 201 || d.beityp == 213 || d.beityp == 214 || d.beityp == 22 ||d.beityp == 221)
+      else if (beityp == 201 || beityp == 213 || beityp == 214 || beityp == 22 ||beityp == 221)
           {
               beitypVal = 0.25;
               Temp_beityp =  beitypVal * document.getElementById("1a").value ;
-              console.log(Temp_beityp);
+              //console.log(Temp_beityp);
           }
-      else if (d.beityp == 202 || d.beityp == 212 || d.beityp == 223 || d.beityp == 224 )
+      else if (beityp == 202 || beityp == 212 || beityp == 223 || beityp == 224 )
           {
               beitypVal = 0.50;
               Temp_beityp =  beitypVal * document.getElementById("1a").value ;
-              console.log(Temp_beityp);
+              //console.log(Temp_beityp);
           }
 	  else 
           {
               Temp_beityp =  1 * document.getElementById("1a").value ;
-              console.log(Temp_beityp);
+              //console.log(Temp_beityp);
           }
-      
-      
+      var Fin1 = parseInt(Temp_beityp)
+      //console.log(Temp_beityp);
       
       d.emp = +d.emp
       
@@ -1326,36 +729,92 @@ btn.addEventListener("click", function() {
       
       if (d.mod == 11 )
           {
-              ModVal = 1.0;
-              Temp_Mod =  ModVal * document.getElementById("13a").value ;
+              modVal = 1.0;
+              Temp_mod =  modVal * document.getElementById("13a").value ;
               
           }
       else if (d.mod == 12 )
           {
               
-              ModVal = -1.0;
-              Temp_Mod =  ModVal * document.getElementById("13a").value ;
+              modVal = -1.0;
+              Temp_mod =  modVal * document.getElementById("13a").value ;
               
         }
       else
           {
-          Temp_Mod =  0 * document.getElementById("13a").value ;
+          Temp_mod =  0 * document.getElementById("13a").value ;
               //Temp_mod =  d.mod * document.getElementById("13a").value ;
       //console.log(Tempausg_mod);
-              }
+          }
           
       
+	  /*TotalWeights = document.getElementById("1a").value + document.getElementById("2a").value + document.getElementById("3a").value + document.getElementById("4a").value + document.getElementById("5a").value + document.getElementById("6a").value + document.getElementById("7a").value + document.getElementById("8a").value + document.getElementById("9a").value + document.getElementById("10a").value + document.getElementById("11a").value + document.getElementById("12a").value + document.getElementById("13a").value ; */ 
+      var fin1 = parseInt (Temp_beityp);
+	  var fin2 = parseInt (Temp_emp);
+	  var fin3 = parseInt (Temp_degr);
+	  var fin4 = parseInt (Temp_hoefl);
+	  var fin5 = parseInt (Temp_ehrl);
+	  var fin6 = parseInt (Temp_posemo);
+	  var fin7 = parseInt (Temp_negemo);
+	  var fin8 = parseInt (Temp_humor);
+	  var fin9 = parseInt (Temp_frage);
+	  var fin10 = parseInt (Temp_korr);
+	  var fin11 = parseInt (Temp_zus);
+	  var fin12 = parseInt (Temp_meta);
+	  var fin13 = parseInt (Temp_mod);
       
-      FinalValue = (Temp_beityp+Temp_emp+Temp_degr+Temp_hoefl+Temp_ehrl+Temp_posemo+Temp_negemo+Temp_humor+Temp_frage+Temp_korr+Temp_zus+Temp_meta+Temp_mod)/13;
-	  
-	  
+	  d.ukey = +d.ukey
+
+      FinalValue = fin1 + fin2 + fin3 + fin4 + fin5 + fin6 + fin7 + fin8 + fin9 + fin10 + fin11 + fin12 + fin13 ;
+      console.log("publisher" + d.ukey);
+	  console.log(FinalValue);
       
+		  
       
 
   });
   
-});   
-});
+}); 
+}
+var Tcnt = 0;
+var Valc ;
+for(i = 0; i < x.length; i++) {
+  if (x[i].value != "7.69")
+  {
+      Tcnt = Tcnt + 1;
+      Valc = x[i].value;
+      ValcIndex = i;
+  }
+ }
+
+if (totalWeights == 100 || tempmissingweight == 0.00 )
+ {
+ xyz();
+}
+else if (Tcnt == 1)
+    {   
+        for(i = 0; i < x.length; i++) {
+        if (x[i].value != Valc)
+            {   
+                var TwoBoxVal;
+                TwoBoxVal = 100 - Valc;
+                x[i].value = TwoBoxVal / 12 ;
+                console.log(x[i].value);
+               
+            }
+       
+    }
+    xyz();
+}
+
+else{
+    alert("Please add " + missingweight + " Values are in text box " );
+    console.log(missingweight); 
+     }
+ };       
+  };  
+
+
 function d3_functor(v) {
   return typeof v === "function" ? v : function() { return v; };
 };

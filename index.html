@@ -2,10 +2,127 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Visual Dillebration</title>
+<style>
 
-<body background="img1.jpg">
+    .trams-conditions #toggle4 {
+  font-size: 19px;
+  color: #747474;
+  text-decoration: none;
+  padding-left: 50px;
+  background-size: 19%;
+}
+
+.trams-conditions {
+  padding: 50x 10px;
+  margin: 10px 190px;
+}
+
+.trams-conditions .plus-icon {
+  background: url('http://icons.iconarchive.com/icons/icons8/ios7/256/User-Interface-Plus-icon.png') no-repeat left center;
+}
+
+.trams-conditions .plus-icon.mins-icon {
+  background: url('http://icons.iconarchive.com/icons/icons8/ios7/256/User-Interface-Minus-icon.png') no-repeat left center;
+}
+
+.trams-conditions .trams-con {
+  font-size: 12px;
+  color: #747474;
+  margin-top: 10px;
+  display: none;
+  overflow: auto;
+  max-width: 1986px;
+}
+
+	#active2 #tab2,
+#active3 #tab3,
+#active4 #tab4,
+#active5 #tab5 {
+	font-weight:bold;
+	text-decoration:none;
+	color:#000;
+}
+
+
+/* Start of Column CSS */
+#container5 {
+	clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+	background:#eee; /* column 5 background colour */
+}
+#container4 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#b2f0f9; /* column 4 background colour */
+}
+#container3 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#89ffa2; /* column 3 background colour */
+}
+#container2 {
+	clear:left;
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#ffa7a7; /* column 2 background colour */
+}
+#container1 {
+	float:left;
+	width:100%;
+	position:relative;
+	right:20%;
+	background:#fff689; /* column 1 background colour */
+}
+#col1 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:82%;
+	overflow:hidden;
+}
+#col2 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:86%;
+	overflow:hidden;
+}
+#col3 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:90%;
+	overflow:hidden;
+}
+#col4 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:94%;
+	overflow:hidden;
+}
+#col5 {
+	float:left;
+	width:16%;
+	position:relative;
+	left:98%;
+	overflow:hidden;
+}
+</style>
+<body>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://bl.ocks.org/syntagmatic/raw/3341641/render-queue.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="style.css"></link>
 <!--Select your Attribute:
@@ -16,90 +133,202 @@
   <option value="medium">medium</option>
 </select>
 <button onclick="buttonscript()">Click me</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Avg:<input type="text" name="" id="total" readonly/>-->
-    <input type="button" id="calc" value="Send"/><br>
+    <input type="button"  id= "calc" value="Send" style="display: none"; /><br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" name="rangeInput" min="0" step="0.01" max="7.3" style="width:4%" onchange="updateTextInput1(this.value);">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput1(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput2(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%;" onchange="updateTextInput2(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput3(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput3(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput4(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput4(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput5(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput5(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput6(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput6(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput7(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput7(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput8(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput8(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput9(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput9(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput10(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput10(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput11(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput11(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput12(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput12(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="range" name="rangeInput" min="0" step="0.01" max="7.69" style="width:4%" onchange="updateTextInput13(this.value);">
+<input type="range" name="rangeInput" min="0" step="1" max="100" style="width:4%" onchange="updateTextInput13(this.value);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="value" id="1a" style="width:4%" name="" value="" >
+<form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="value" id="1a" style="width:4%" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" >
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<input type="text" class="value"  id="2a" style="width:4%" name="" value="6.5">
+<input type="text" class="value"  id="2a" style="width:4%" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<input type="text" class="value"  id="3a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="3a" style="width:4%" name="textbox" value="" onkeypress="javascript:doit_onkeypress(event);" >
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="4a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="4a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="5a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="5a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="6a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="6a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="7a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="7a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="8a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="8a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="9a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="9a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="10a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="10a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="11a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="11a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="12a" style="width:4%" name="" value="" >
+<input type="text" class="value"  id="12a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="text" class="value"  id="13a" style="width:4%" name="" value="" > 
+<input type="text" class="value"  id="13a" style="width:4%" name="" value="" onkeypress="javascript:doit_onkeypress(event);"> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <!--
-<input type="text" class="value"  id="14a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="15a" style="width:2%" name="" value="" >
-&nbsp;
-    &nbsp;
-<input type="text" class="value"  id="16a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="17a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="18a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="19a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="20a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="21a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="22a" style="width:2%" name="" value="" >
 
-<input type="text" class="value"  id="23a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="24a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="25a" style="width:2%" name="" value="" >
-&nbsp;
-<input type="text" class="value"  id="26a" style="width:2%" name="" value="" > -->
 </form>
+
 <script src="myjs.js"></script>
+
+
+
+<div class="trams-conditions">
+  <a href="#" id="toggle4" class="plus-icon">Descirption about Axis</a>
+  <div class="trams-con">
+
+  <div id="container5">
+	<div id="container4">
+		<div id="container3">
+			<div id="container2">
+				<div id="container1">
+					<div id="col1">
+						<!-- Column one start -->
+						<h2>beityp</h2>
+					
+  						20. answers without statement / reason<br/> 
+  						21. unfounded answer<br/> 
+ 						22. reasoned answer<br/> 
+  						201. approval<br/> 
+  						202. rejection<br/> 
+ 						211. Unfounded claim<br/> 
+						212. Unfounded contradiction<br/> 
+					    213. Unfounded defense<br/> 
+						214. Unfounded approval<br/> 
+						221. Reasoned statement / opinion<br/> 
+						222. Reasoned contradiction<br/> 
+						223. Reasoned defense<br/> 
+						224. Well-founded approval<br/> 
+						<h2>emp</h2>
+
+  						0. Empathy to other positions<br/> 
+  						1. Empathy to panelists<br/> 
+  						2. Empathy to third person<br/> 
+
+						
+					</div>
+					<div id="col2">
+						<!-- Column two start -->
+						<h2>degr</h2>
+						0. No degrading treatment <br/>
+						1. Despicable use of comments <br/>
+						2. Despicable treatment of statements <br/>
+						3. Dismissive handling of utterances <br/>
+						4. Despicable treatment of statements by several groups <br/>
+						9. Despicable treatment of statements made by other persons<br/>
+						<h2>hoefl</h2>
+						0. Extraordinary courtesies do not occur<br/>
+						1. Extraordinary courtesies occur<br/>
+						<h2>ehrl</h2>
+						0. Honesty of other panelists <br/>
+						1. Honesty of other panelists is questioned <br/>
+						2. Honesty of the journalist is questioned <br/>
+						3. Honesty of politicians is questioned <br/>
+						4. Honesty of several stakeholder groups is questioned<br/>
+						9. Honesty of other people is questioned<br/>
+
+
+						<!-- Column two end -->
+					</div>
+					<div id="col3">
+						<!-- Column three start -->
+						<h2>posemo</h2>
+						0. No expression of positive emotions <br/>10. Contain positive emotion<br/> 11. Expressions of joy<br/> 12. Expressions of love <br/>13. Expressions of positive<br/>
+						<h2>negemo</h2>
+						0. No expression of negative emotions <br/>10. Negative emotion included <br/>11. Expressions of anger<br/> 12. Expressions of sadness <br/>13. Expressions of negative<br/> 14. Expressions of fear<br/>
+						<h2>humor</h2>
+						0. No expression of humor in the post available <br/>
+						1. Humor in the post available<br/>
+
+					</div>
+					<div id="col4">
+						<!-- Column four start -->
+						<h2>frage</h2>
+						0. No question available or recognizable <br/>
+						10. Question in the discussion post of a user available <br/>
+						11. asked a question 12. Demand or inquiry <br/>
+						13. Rhetorical question that does not require <br/>
+						<h2>korr</h2>
+						0. No corrective statement available <br/>
+						1. corrective statement on the journalistic <br/>
+						2. corrective statement to another discussion <br/>
+						<h2>zus</h2>
+						0. No summary of previous discussion  <br/>
+						1. Summary of previous discussion  without synthesis.<br/> 
+						2. Summary of previous discussion with synthesis.<br/>
+						
+
+						<!-- Column four end -->
+					</div>
+					<div id="col5">
+						<!-- Column five start -->
+						<h2>meta</h2>
+						0. No Metatalk available <br/>
+						10. Metatalk present in discussion <br/>
+						11. Metatalk exists as self-reflection <br/>
+						12. etatalk exists as a third-party reflection <br/>
+						20. Thematizing Metatalk in public debate <br/>
+						<h2>mod</h2>
+						0. No discussion of the enforcemen <br/>
+						10. Topic of the journalistic presentation <br/>
+						11. Positive comments <br/>
+						12. Negative Statements<br/>
+						
+						<!-- Column five end -->
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<script>
+$('#toggle4').click(function() {
+  $('.trams-con').slideToggle('fast');
+  if ($(this).hasClass('mins-icon')) {
+    $(this).removeClass('mins-icon').addClass('plus-icon');
+  } else {
+    $(this).addClass('mins-icon');
+  }
+  return false;
+});
+</script>
+
+
+
 </html>
