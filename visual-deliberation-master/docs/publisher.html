@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Example jQuery Timeline</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 4.0.0-alpha.6 -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Font Awesome latest -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!-- jQuery Timeline -->
+        <link href="./css/timeline.min.css?ver=1.0.5" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+        <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <iframe id="iframe_one" name="iframe_one" src="index_article_zeitonline.html" width="100%" height="1100px" style=".card-block{display: none;}"></iframe>
+        <iframe src="index_article_weltonline.html" width="100%" height="800px"></iframe>
+        <iframe src="index_article_6.html" width="100%" height="800px"></iframe>
+        <iframe src="index_article_focusonline.html" width="100%" height="640px"></iframe>
+        <iframe src="index_article_tagesspiegel.html" width="100%" height="950px"></iframe>
+        <iframe src="index_article_spiegelonline.html" width="100%" height="900px"></iframe>
+        <iframe src="index_article_rp.html" width="100%" height="700px"></iframe>
+
+    </body>
+    <script>
+        /*
+        window.document.addEventListener('ukeysent', handleEvent, false)
+        function handleEvent(e) {
+            console.log("ukey:" + e.detail); // outputs: {foo: 'bar'}
+        }
+*/
+        setTimeout(function(){
+            var $head = $("iframe").contents().find("head"); 
+            var url = "css/hidden.css";
+            $head.append($("<link/>", { rel: "stylesheet", href: url, type: "text/css" } ));
+            console.log('AUSGABE ERFOLGT!');
+        }, 10000);
+        //handleEvent(e);
+
+        
+        window.document.addEventListener('multikeysent', function(e){
+           
+             $("iframe").contents().find(".timeline-node[title='" + e.detail + "']").css("border-color", "blue");
+            
+            var samsdata = e.detail;
+
+            var event = new CustomEvent('sam', { detail: samsdata })
+           document.dispatchEvent(new Event('preview.compiled'));
+           
+        });
+
+
+
+    </script>
+</html>
